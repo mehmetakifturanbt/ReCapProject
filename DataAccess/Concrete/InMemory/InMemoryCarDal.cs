@@ -7,7 +7,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory
 {
-    class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
 
@@ -43,6 +43,7 @@ namespace DataAccess.Concrete.InMemory
             Car carToSelect = _cars.SingleOrDefault(c => c.Id == car.Id);
             Console.WriteLine("Seçilen araç = " + carToSelect.BrandId);
         }
+
 
         public void Update(Car car)
         {
