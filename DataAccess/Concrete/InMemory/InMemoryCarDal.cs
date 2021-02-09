@@ -7,52 +7,62 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal : ICarDal
+    //public class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal
     {
-        List<Car> _cars;
+        //List<Car> _cars;
 
-        public InMemoryCarDal()
-        {
-            _cars = new List<Car>
-            {
-                new Car{Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 250000, Description = "İkinci El", ModelYear = 2009},
-                new Car{Id = 2, BrandId = 2, ColorId = 2, DailyPrice = 125000, Description = "İkinci El", ModelYear = 2010},
-                new Car{Id = 3, BrandId = 1, ColorId = 3, DailyPrice = 500000, Description = "İkinci El", ModelYear = 2015},
-                new Car{Id = 4, BrandId = 2, ColorId = 1, DailyPrice = 250000, Description = "İkinci El", ModelYear = 2018},
-                new Car{Id = 5, BrandId = 3, ColorId = 2, DailyPrice = 270000, Description = "Sıfır", ModelYear = 2020},
-            };
-        }
-        public void Add(Car car)
-        {
-            _cars.Add(car);
-        }
+        //public InMemoryCarDal()
+        //{
+        //    _cars = new List<Car>
+        //    {
+        //        new Car{CarId = 1, BrandId = 1, ColorId = 1, DailyPrice = 250000, Description = "İkinci El", ModelYear = 2009},
+        //        new Car{CarId = 2, BrandId = 2, ColorId = 2, DailyPrice = 125000, Description = "İkinci El", ModelYear = 2010},
+        //        new Car{CarId = 3, BrandId = 1, ColorId = 3, DailyPrice = 500000, Description = "İkinci El", ModelYear = 2015},
+        //        new Car{CarId = 4, BrandId = 2, ColorId = 1, DailyPrice = 250000, Description = "İkinci El", ModelYear = 2018},
+        //        new Car{CarId = 5, BrandId = 3, ColorId = 2, DailyPrice = 270000, Description = "Sıfır", ModelYear = 2020},
+        //    };
+        //}
+        //public void Add(Car car)
+        //{
+        //    _cars.Add(car);
+        //}
 
-        public void Delete(Car car)
-        {
-            Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
-            _cars.Remove(carToDelete);
-        }
+        //public void Delete(int id)
+        //{
+        //    Car carToDelete = _cars.SingleOrDefault(c => c.CarId == id);
+        //    _cars.Remove(carToDelete);
+        //}
 
-        public List<Car> GetAll()
-        {
-            return _cars;
-        }
+        //public List<Car> GetAll()
+        //{
+        //    return _cars;
+        //}
 
-        public void GetById(Car car)
-        {
-            Car carToSelect = _cars.SingleOrDefault(c => c.Id == car.Id);
-            Console.WriteLine("Seçilen araç = " + carToSelect.BrandId);
-        }
+        //public List<Car> GetAllByBrand(int brandId)
+        //{
+        //    return _cars.Where(c => c.BrandId == brandId).ToList();
+        //}
+
+        //public List<Car> GetAllByColor(int colorId)
+        //{
+        //    return _cars.Where(c => c.ColorId == colorId).ToList();
+        //}
+
+        //public Car GetById(int id)
+        //{
+        //    return _cars.SingleOrDefault(c => c.CarId == id);
+        //}
 
 
-        public void Update(Car car)
-        {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
-            carToUpdate.ColorId = car.ColorId;
-            carToUpdate.BrandId = car.BrandId;
-            carToUpdate.DailyPrice = car.DailyPrice;
-            carToUpdate.Description = car.Description;
-            carToUpdate.ModelYear = car.ModelYear;
-        }
+        //public void Update(Car car)
+        //{
+        //    Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+        //    carToUpdate.ColorId = car.ColorId;
+        //    carToUpdate.BrandId = car.BrandId;
+        //    carToUpdate.DailyPrice = car.DailyPrice;
+        //    carToUpdate.Description = car.Description;
+        //    carToUpdate.ModelYear = car.ModelYear;
+        //}
     }
 }
