@@ -4,6 +4,7 @@ using System.Text;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -31,8 +32,15 @@ namespace Business.Concrete
 
         public void Delete(Car car)
         {
-            _carDal.Delete(car);
-            Console.WriteLine("Araba başarıyla silindi.");
+            try
+            {
+                _carDal.Delete(car);
+                Console.WriteLine("Araba başarıyla silindi.");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("Girdiğiniz Id değerine sahip araba yok!");
+            }
 
         }
 
@@ -68,6 +76,11 @@ namespace Business.Concrete
             return _carDal.GetAll(c => c.ModelYear.Contains(year) == true);
         }
 
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
+
         public void Update(Car car)
         {
             if (car.DailyPrice > 0)
@@ -79,6 +92,11 @@ namespace Business.Concrete
             {
                 Console.WriteLine($"Lütfen günlük fiyat kısmını 0'dan büyük giriniz. Girdiğiniz değer : {car.DailyPrice}");
             }
+        }
+
+        List<CarDetailDto> ICarService.GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
     }
 }
